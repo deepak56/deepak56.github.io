@@ -1,0 +1,65 @@
+---
+layout: post
+title: "Starting with Octopress"
+date: 2014-02-03 12:43:50 +0530
+comments: true
+categories: 
+---
+
+I am always bookmarking interesting tutorials that I would do one fine day. Since that day never comes, I have aimed to do one tutorial each day. The topics would broadly be programming, marketing and productivity hacks. All credit to the original tutorial - I am just thinking aloud as I type my notes. 
+
+Day 1: Getting started with Octopress http://dev.tutsplus.com/tutorials/getting-started-with-octopress--webdesign-11442
+
+Since I am using Ubuntu 12.04 - the tips might or might not be applicable to you. 
+
+Octopress is a static blogging framework that calls itself “A blogging framework for hackers”. The above tutorial does a good job of explaining what is the difference between such a static framework and something like Wordpress that needs to ‘do’ something on the server before becoming viewable. 
+
+Octopress in itself is pretty famous and the default theme is used by a lot of programmers. I was a bit wary that the Octopress site hasn’t been updated for a few years and toyed with the idea of trying out Pelican - that does almost the same thing but is Python based. Maybe, will do that later. 
+
+##Installing everything: 
+
+You would need Ruby version 1.9.3 or above for this to work. And since my machine didn’t have that I had to use the Ruby Version Manager (rvm). 
+
+As soon as I put in the first command of the tutorial, out popped the message that rvm on Ubuntu is unusable. Good thing though that the link given pointed to a Stackoverflow answer that worked perfectly. 
+
+You had to remove the rvm completely and reinstall as per these instructions. 
+
+To start using RVM you need to run something like `source /home/user/.rvm/scripts/rvm`
+
+Follow the instructions, and finally when it all ends run the command ruby --version. It should output to the latest one. I now have 2.1.0
+
+With Ruby you also need RubyGems - a package management framework for Ruby. If you don’t already have that head over to here. Broadly, the programs/libraries/codes in Ruby are in a self contained format called a gem. With RubyGems you can install any of these open source packages directly from the command line. 
+
+We will install the Jekyll & Bundler gems. Jekyll in itself is a pretty famous static site generator while Bundler will allow to manage dependencies better. 
+
+	gem install Jekyll
+	gem install Bundler
+
+So with the ancillaries installed, we will install the Octopress bundle. I have a Projects folder in my desktop, where I put in a Sites/mysite structure. Follow the instructions as given. 
+
+	cd Projects/Sites
+	git clone git://github.com/imathis/octopress.git mysite
+
+	cd mysite
+	bundle install
+
+Installing the default Octopress theme:
+
+	rake install
+
+
+##Ready to run
+
+A command to start a new post 
+
+	rake new_post["A post"]
+
+And we are ready to preview
+
+	rake preview
+
+
+
+{% img centre /images/firstpic.png 550 550 'image' 'images' %}
+
+Okay so that worked out pretty well. Time to learn some Markdown 
